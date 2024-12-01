@@ -19,7 +19,6 @@ project:
   source_files:
     - "project.v"
     - "if_filter.v"
-    - "project.v"
     - "rf_mixer_nco.v"
     - "spi.v"
     - "top.v"

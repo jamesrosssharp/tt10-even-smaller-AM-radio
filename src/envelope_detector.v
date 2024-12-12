@@ -12,11 +12,11 @@ Copyright 2023 J.R.Sharp
 module envelope_detector (
     input clk,
     input RSTb,
-    input signed [7:0]  ifreq,
+    input signed [5:0]  ifreq,
     output reg signed [7:0] env_out
 ); 
 
-wire [3:0] env_det = (ifreq < 0) ? -ifreq : ifreq;
+wire [5:0] env_det = (ifreq < 0) ? -ifreq : ifreq;
 
 // Uncomment this to meet timing in ice40 FPGA
 /*reg [7:0] env_det;
@@ -41,18 +41,18 @@ end*/
 *
 */
 
-reg [19:0] yn_1;
+reg [15:0] yn_1;
 wire [9:0] alpha = 10'd1023;
-wire [29:0] alpha_yn_1 = alpha * yn_1;
-wire [19:0] sum = alpha_yn_1[29:10] + env_det;
+wire [25:0] alpha_yn_1 = alpha * yn_1;
+wire [15:0] sum = alpha_yn_1[25:10] + env_det;
 
 always @(posedge clk)
 begin
     if (RSTb == 1'b0) begin
-        yn_1 <= 20'd0;
+        yn_1 <= 16'd0;
     end else begin    
         yn_1 <= sum;
-        env_out <= yn_1[17:10];
+        env_out <= yn_1[12:5];
     end        
 end
 

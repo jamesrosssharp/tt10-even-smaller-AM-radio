@@ -23,7 +23,7 @@ module top (
 );
 
 wire [15:0] phase_inc;
-wire [2:0]  gain_spi;
+wire [1:0]  gain_spi;
 
 spi spi0
 (
@@ -53,7 +53,7 @@ rf_mixer_nco nco0
     cos_out
 );
 
-wire signed [7:0] if_filt_out;
+wire signed [5:0] if_filt_out;
 
 /* Low pass filter */
 if_filter filt0
@@ -67,10 +67,11 @@ if_filter filt0
 
 /* Mix back up again */
 
-wire signed [11:0] up_conv = if_filt_out * cos_out;
-reg signed [7:0] up_conv_r;
+wire signed [9:0] up_conv = if_filt_out * cos_out;
+//wire signed [5:0] up_conv_r = up_conv[9:4];
+reg signed [5:0] up_conv_r;
 
-always @(posedge clk) up_conv_r <= up_conv[11:4];
+always @(posedge clk) up_conv_r <= up_conv[9:4];
 
 
 wire [7:0] env_det_out;

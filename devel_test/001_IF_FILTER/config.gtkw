@@ -1,18 +1,18 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Thu Dec 12 01:37:14 2024
+[*] Thu Dec 12 08:22:05 2024
 [*]
 [dumpfile] "/home/jrsharp/home_mnt/code/tt10-even-smaller-AM-radio/devel_test/001_IF_FILTER/tb.vcd"
-[dumpfile_mtime] "Thu Dec 12 01:32:55 2024"
-[dumpfile_size] 27262
+[dumpfile_mtime] "Thu Dec 12 08:14:47 2024"
+[dumpfile_size] 3650
 [savefile] "/home/jrsharp/home_mnt/code/tt10-even-smaller-AM-radio/devel_test/001_IF_FILTER/config.gtkw"
-[timestart] 5114100
+[timestart] 0
 [size] 1920 996
 [pos] 0 29
-*-17.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.000000 197200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb.
 [sst_width] 223
-[signals_width] 158
+[signals_width] 267
 [sst_expanded] 1
 [sst_vpaned_height] 289
 @28
@@ -22,7 +22,18 @@ tb.if0.if_out[3:0]
 tb.if0.if_filt_out[5:0]
 @28
 tb.if0.RSTb
-@421
-tb.if0.yn_1[9:0]
+@22
+tb.if0.sum[25:0]
+tb.if0.sum_out[20:0]
+tb.if0.xn_1[3:0]
+tb.if0.xn_2[3:0]
+tb.if0.yn_1[13:0]
+tb.if0.yn_2[13:0]
+tb.if0.mul_a1[29:0]
+tb.if0.mul_a2[29:0]
+tb.if0.mul_b0[23:0]
+tb.if0.mul_b2[23:0]
+@23
+tb.if0.if_out[3:0]
 [pattern_trace] 1
 [pattern_trace] 0

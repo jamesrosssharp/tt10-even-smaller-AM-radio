@@ -65,22 +65,13 @@ if_filter filt0
     gain_spi
 );
 
-/* Mix back up again */
-
-wire signed [9:0] up_conv = if_filt_out * cos_out;
-//wire signed [5:0] up_conv_r = up_conv[9:4];
-reg signed [5:0] up_conv_r;
-
-always @(posedge clk) up_conv_r <= up_conv[9:4];
-
-
 wire [7:0] env_det_out;
 
 envelope_detector det0
 (
     clk,
     RSTb,
-    up_conv_r,
+    if_filt_out,
     env_det_out
 );
 
